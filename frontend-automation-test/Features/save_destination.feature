@@ -1,5 +1,5 @@
 @save-destination
-Feature: Save a destination
+Feature: Save a destination freda
 
   Scenario Outline: User saves multiple destinations from the Explore page
     Given the user is on the Explore page
