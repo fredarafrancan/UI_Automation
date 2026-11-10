@@ -1,4 +1,5 @@
 const { Given, setDefaultTimeout, Then, When } = require('@cucumber/cucumber')
+const { ExploreDestinationPage } = require('../Pages/explore_destination.page')
 const { SaveDestinationPage } = require('../Pages/save_destination.page')
 
 setDefaultTimeout(30_000)
@@ -6,6 +7,7 @@ setDefaultTimeout(30_000)
 Given('the user is on the Explore page', async function () {
   this.saveDestinationPage = new SaveDestinationPage(this.page)
   await this.saveDestinationPage.openExplore()
+  this.exploreDestinationPage = new ExploreDestinationPage(this.page)
 })
 
 When('the user saves the first {int} destinations', async function (destinationCount) {

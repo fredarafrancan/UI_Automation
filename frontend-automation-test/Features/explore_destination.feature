@@ -1,0 +1,36 @@
+@explore-destinations
+Feature: Explore destination cards
+
+  Scenario: Destination cards show complete destination information
+    Given the user is on the Explore page
+    When the destination list is displayed
+    Then the destinations are shown as cards
+    And at least one destination card is visible
+    And no error message is displayed
+    And every card shows the destination name
+    And every card shows the category
+    And every card shows the district
+
+  Scenario: A destination card displays its image without distortion
+    Given the user is on the Explore page
+    And a destination has an image
+    When the user looks at the card of that destination
+    Then the card shows the image
+    And the image is not broken or stretched
+    And the card still shows the name, category, and district
+
+  @requires-image-free-destination
+  Scenario: A destination without an image displays a placeholder
+    Given the user is on the Explore page
+    And a destination does not have an image
+    When the user looks at the card of that destination
+    Then the card shows a placeholder instead of an image
+    And no broken image icon is displayed
+    And the card layout is the same as the other cards
+    And the card still shows the name, category, and district
+
+  Scenario: Opening the first destination card shows its details
+    Given the user sees the list of destination cards
+    When the user clicks the first destination card
+    Then the detail page of that destination opens
+    And the detail page shows the same destination name as the card
